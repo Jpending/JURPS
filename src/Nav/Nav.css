@@ -1,0 +1,15 @@
+.main-nav {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+
+}
+
+.nav-item {
+  flex: 1;
+}
+
+Nav {
+  border: 5px black solid;
+  background-color: lightgray;
+}
