@@ -1,61 +1,122 @@
 const store = [
   {
-    user: {
-      nickname: "Chonk",
-      user_id: 1,
-      stuff:
-      {
-        BBEGs: {
-          'Zurg': { id: 1 },
-          'Lur, of Omicron Persei 8': { id: 2 },
-          'The Violator': { id: 3 },
-          'Firelord Ozai': { id: 4 }
-        },
-
-        Characters: {
-          'Sokka': {
-            id: 1
-          },
-          'Snuffleupagus': {
-            id: 2
-          }, 'Hubert J Farnsworth': {
-            id: 3
-          }, 'Barney Rubble': {
-            id: 4
-          }
-        }
-        ,
-
-        Items: {
-          'Sword of a Thousand Truths': {
-            id: 1
-          }, 'Lightsaber': {
-            id: 2
-          }, 'TTD': {
-            id: 3
-          }, 'Infinity Gauntlet': {
-            id: 4
-          }
-        }
-        ,
-
-        NPCs: {
-          'Zoidberg': {
-            id: 1
-          }, 'Patrick Star': {
-            id: 2
-          }, 'R2-D2': {
-            id: 3
-          }, 'Mysterious Stranger': {
-            id: 4
-          }
-        }
-      }
+    "id": 1,
+    "name": "Lur, of the Planet Omicron Persei 8",
+    "race": "Omicronian",
+    "class": "Ruler",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 7,
+    "name": "R2-D2",
+    "race": "Droid",
+    "class": "Utility Droid",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Snuffleupagus",
+    "race": "Muppet",
+    "class": "Beast",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Cthulu",
+    "race": "Unkown",
+    "class": "Great Old One",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Hubert J Farnsworth",
+    "race": "Human",
+    "class": "Scientist",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Remy LeBeaux",
+    "race": "Mutant",
+    "class": "Ranged",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Link",
+    "race": "Hylian",
+    "class": "Warrior",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Firelord Ozai",
+    "race": "Human",
+    "class": "Fire Bender",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
+    }
+  },
+  {
+    "id": 6,
+    "name": "BJ Blaskowicz",
+    "race": "Human",
+    "class": "Doom Slayer",
+    "date_created": "2020-09-01T17:48:25.536Z",
+    "user": {
+      "id": 1,
+      "user_name": "dunder",
+      "email": "dunder@mifflin.com",
+      "date_created": "2020-09-01T17:48:25.536Z"
     }
   }
-];
-
-
+]
 
 
 

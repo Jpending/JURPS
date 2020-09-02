@@ -1,7 +1,7 @@
 import React from 'react';
-
 import './App.css';
 import Nav from './Nav/Nav'
+import CreateNav from './Create/CreateNav/CreateNav';
 
 
 
@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Nav handleClickLogIn={this.handleClickLogIn} loggedIn={this.state.loggedIn} />
+      <Nav />
     )
   };
 }

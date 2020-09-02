@@ -3,8 +3,8 @@ import React from 'react'
 export default function Character() {
 
   return (
-    <div>
-      <h1>Create your ...</h1>
+    <body>
+      <h1>Create your Character</h1>
       <div>
         <form>
           <div className="textattr">
@@ -33,6 +33,6 @@ export default function Character() {
           <button>Create</button>
         </form >
       </div>
-    </div>
+    </body>
   );
 }

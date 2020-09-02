@@ -6,42 +6,61 @@ import {
   Link
 } from "react-router-dom";
 import './Nav.css'
-import About from '../About/About'
-import Contact from '../Contact/Contact'
-import Home from '../Home/Home'
-import UserHome from '../UserHome/UserHome'
-
+import About from './About/About'
+import Contact from './Contact/Contact'
+import Home from './Home/Home'
+import UserHome from './UserHome/UserHome'
+import HowToUse from './HowToUse/HowToUse'
+import Registration from '../Registration/Registration'
+import Character from '../Create/Character/Character'
+import BBEG from "../Create/BBEG/BBEG"
+import NPC from '../Create/NPC/NPC'
+import Item from '../Create/Item/Item'
 
 export default class Nav extends React.Component {
 
   render() {
-    let isLoggedIn = this.props.loggedIn;
+
 
     return (
       <Router>
         <nav className="main-nav">
           <div className="nav-item"><Link to="/">Home</Link></div>
-          <div className="nav-item"><Link to="/User-Home">My-Stuff</Link></div>
+          <div className="nav-item"><Link to="/User">Create & View</Link></div>
           <div className="nav-item"><Link to="/About">About</Link></div>
           <div className="nav-item"><Link to="/How-To-Use">How to Use</Link></div>
           <div className="nav-item"><Link to="/Contact">Contact</Link></div>
         </nav>
-
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/How-To-Use">
-            <How-To-Use />
+          <Route exact path="/How-To-Use">
+            <HowToUse />
           </Route>
-          <Route path="/Contact">
+          <Route exact path="/Contact">
             <Contact />
           </Route>
-          <Route path="/User-Home">
+          <Route exact path="/User">
             <UserHome />
           </Route>
+          <Route exact path="/User/Register">
+            <Registration />
+          </Route>
+          <Route exact path="/User/Create/Character">
+            <Character />
+          </Route>
+          <Route exact path="/User/Create/NPC">
+            <NPC />
+          </Route>
+          <Route exact path="/User/Create/Item">
+            <Item />
+          </Route>
+          <Route exact path="/User/Create/BBEG">
+            <BBEG />
+          </Route>
           <Route path="/">
-            <Home handleClickLogIn={this.props.handleClickLogIn} />
+            <Home />
           </Route>
         </Switch>
 
