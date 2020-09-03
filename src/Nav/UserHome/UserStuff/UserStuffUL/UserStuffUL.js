@@ -1,5 +1,6 @@
 import React from 'react'
 import UserStuffLI from '../UserStuffLI/UserStuffLI';
+import FadeIn from '../../../../Utilities/FadeIn';
 
 
 export default class UserStuffUL extends React.Component {
@@ -10,7 +11,9 @@ export default class UserStuffUL extends React.Component {
 
       <div className="mylist" >
         <h3>My Characters</h3>
-        {chars.map(character => <UserStuffLI key={character.id} char={character} />)}
+        <FadeIn>
+          {chars.map(character => <UserStuffLI key={character.id} char={character} />)}
+        </FadeIn>
       </div>
 
     )

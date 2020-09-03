@@ -1,14 +1,8 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom"
-import Character from '../Character/Character'
-import BBEG from "../BBEG/BBEG"
-import NPC from '../NPC/NPC'
-import Item from '../Item/Item'
+
 
 export default function CreateNav() {
 

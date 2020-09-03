@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 import Nav from './Nav/Nav'
-import CreateNav from './Create/CreateNav/CreateNav';
+import FadeIn from './Utilities/FadeIn'
 
 
 
@@ -15,7 +15,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Nav />
+      <FadeIn>
+        <Nav />
+      </FadeIn>
     )
   };
 }
