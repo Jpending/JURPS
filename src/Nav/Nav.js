@@ -6,10 +6,10 @@ import {
   Link
 } from "react-router-dom";
 import './Nav.css'
-import About from './About/About'
-import Contact from './Contact/Contact'
+import About from '../Routes/InfoPages/About/About'
+import Contact from '../Routes/InfoPages/Contact/Contact'
 import UserHome from './UserHome/UserHome'
-import HowToUse from './HowToUse/HowToUse'
+import HowToUse from '../Routes/InfoPages/HowToUse/HowToUse'
 import Character from '../Create/Character/Character'
 import BBEG from "../Create/BBEG/BBEG"
 import NPC from '../Create/NPC/NPC'
