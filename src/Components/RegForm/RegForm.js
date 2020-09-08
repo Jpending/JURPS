@@ -1,8 +1,8 @@
 import React from 'react';
-import './Registration.css'
+import './RegForm.css'
 import { Button, Input, Required } from '../../Utilities/Utilities'
 
-export default class Registration extends React.Component {
+export default class RegistrationForm extends React.Component {
   static defaultProps = {
     onRegistrationSuccess: () => { }
   }
@@ -11,13 +11,13 @@ export default class Registration extends React.Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { full_name, nick_name, user_name, password } = ev.target
+    const { email, display_name, user_name, password } = ev.target
 
     console.log('registration form submitted')
-    console.log({ full_name, nick_name, user_name, password })
+    console.log({ email, display_name, user_name, password })
 
-    full_name.value = ''
-    nick_name.value = ''
+    email.value = ''
+    display_name.value = ''
     user_name.value = ''
     password.value = ''
     this.props.onRegistrationSuccess()
@@ -33,22 +33,24 @@ export default class Registration extends React.Component {
         <div role='alert'>
           {error && <p className='red'>{error}</p>}
         </div>
-        <div className='full_name'>
-          <label htmlFor='RegistrationForm__full_name'>
-            Full name <Required />
-          </label>
+        <div className='email'>
+          {/* <label htmlFor='RegistrationForm__email'>
+            E-mail <Required />
+          </label> */}
           <Input
-            name='full_name'
+            placeholder="E-Mail"
+            name='email'
             type='text'
             required
-            id='RegistrationForm__full_name'>
+            id='RegistrationForm__email'>
           </Input>
         </div>
         <div className='user_name'>
-          <label htmlFor='RegistrationForm__user_name'>
+          {/* <label htmlFor='RegistrationForm__user_name'>
             User name <Required />
-          </label>
+          </label> */}
           <Input
+            placeholder="Username"
             name='user_name'
             type='text'
             required
@@ -56,10 +58,12 @@ export default class Registration extends React.Component {
           </Input>
         </div>
         <div className='password'>
-          <label htmlFor='RegistrationForm__password'>
-            Password <Required />
-          </label>
+          {/* <label htmlFor='RegistrationForm__password'>
+            Password
+             <Required />
+          </label> */}
           <Input
+            placeholder="Password"
             name='password'
             type='password'
             required
@@ -67,14 +71,15 @@ export default class Registration extends React.Component {
           </Input>
         </div>
         <div className='nick_name'>
-          <label htmlFor='RegistrationForm__nick_name'>
-            Nickname <Required />
-          </label>
+          {/* <label htmlFor='RegistrationForm__nick_name'>
+            Display Name<Required />
+          </label> */}
           <Input
-            name='nick_name'
+            placeholder="Display Name"
+            name='display_name'
             type='text'
             required
-            id='RegistrationForm__nick_name'>
+            id='RegistrationForm__display_name'>
           </Input>
         </div>
         <Button type='submit'>

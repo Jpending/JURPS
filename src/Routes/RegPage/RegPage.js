@@ -1,8 +1,8 @@
 import React from 'react'
 import { Section } from '../../Utilities/Utilities'
-import Registration from '../../Components/Registration/Registration'
+import RegForm from '../../Components/RegForm/RegForm'
 
-export default class RegistrationPage extends React.Component {
+export default class RegPage extends React.Component {
   static defaultProps = {
     history: {
       push: () => { },
@@ -18,7 +18,7 @@ export default class RegistrationPage extends React.Component {
     return (
       <Section className='RegistrationPage'>
         <h2>Register</h2>
-        <Registration
+        <RegForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
       </Section>

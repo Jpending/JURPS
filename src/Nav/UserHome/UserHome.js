@@ -9,8 +9,8 @@ export default function UserHome() {
     <main>
       <FadeIn >
         <CreateNav />
+        <UserStuff />
       </FadeIn>
-      <UserStuff />
     </main>
   )
 };
