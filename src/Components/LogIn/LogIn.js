@@ -2,6 +2,7 @@ import React from 'react'
 import TokenService from '../../Services/Token-service'
 import AuthService from '../../Services/Auth-service'
 import { Button, Input } from '../../Utilities/Utilities'
+import { Link } from 'react-router-dom'
 
 export default class LogIn extends React.Component {
   static defaultProps = {
@@ -9,20 +10,6 @@ export default class LogIn extends React.Component {
   }
 
   state = { error: null }
-
-  handleSubmitBasicAuth = ev => {
-    ev.preventDefault()
-    const { user_name, password } = ev.target
-
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(
-        user_name.value, password.value)
-    )
-
-    user_name.value = ''
-    password.value = ''
-    this.props.onLoginSuccess()
-  }
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
@@ -78,6 +65,7 @@ export default class LogIn extends React.Component {
         <Button type='submit'>
           Login
         </Button>
+        <Link to="/Register"><Button type="submit">Create Account</Button></Link>
       </form>
     )
   }

@@ -8,15 +8,14 @@ import {
 import './Nav.css'
 import About from './About/About'
 import Contact from './Contact/Contact'
-import Home from './Home/Home'
 import UserHome from './UserHome/UserHome'
 import HowToUse from './HowToUse/HowToUse'
-import Registration from './Registration/Registration'
 import Character from '../Create/Character/Character'
 import BBEG from "../Create/BBEG/BBEG"
 import NPC from '../Create/NPC/NPC'
 import Item from '../Create/Item/Item'
 import RegPage from '../Routes/RegPage/RegPage';
+import LoginPage from '../Routes/LogInPage/LogInPage';
 
 export default class Nav extends React.Component {
 
@@ -45,9 +44,6 @@ export default class Nav extends React.Component {
           <Route exact path="/User">
             <UserHome />
           </Route>
-          <Route exact path="/User/Register">
-            <Registration />
-          </Route>
           <Route exact path="/User/Create/Character">
             <Character />
           </Route>
@@ -60,12 +56,11 @@ export default class Nav extends React.Component {
           <Route exact path="/User/Create/BBEG">
             <BBEG />
           </Route>
-          <Route exact path="/Register">
-            <RegPage />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route exact path="/Register" component={RegPage} />
+          <Route exact path="/login" component={LoginPage} />
+
+          <Route path="/" component={LoginPage} />
+
         </Switch>
 
       </Router >

@@ -4,14 +4,17 @@ import RegForm from '../../Components/RegForm/RegForm'
 
 export default class RegPage extends React.Component {
   static defaultProps = {
+    location: {},
     history: {
       push: () => { },
     },
   }
 
-  handleRegistrationSuccess = user => {
-    const { history } = this.props
-    history.push('/login')
+  handleRegistrationSuccess = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/login'
+    console.log(history)
+    history.push(destination)
   }
 
   render() {

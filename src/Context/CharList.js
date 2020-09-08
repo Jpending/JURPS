@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 
-const ThingListContext = React.createContext({
-  thingList: [],
+const CharListContext = React.createContext({
+  CharList: [],
   error: null,
   setError: () => { },
   clearError: () => { },
-  setThingList: () => { },
+  setCharList: () => { },
 })
-export default ThingListContext
+export default CharListContext
 
-export class ThingListProvider extends Component {
+export class CharListProvider extends Component {
   state = {
-    thingList: [],
+    CharList: [],
     error: null,
   };
 
-  setThingList = thingList => {
-    this.setState({ thingList })
+  setCharList = CharList => {
+    this.setState({ CharList })
   }
 
   setError = error => {
@@ -30,16 +30,16 @@ export class ThingListProvider extends Component {
 
   render() {
     const value = {
-      thingList: this.state.thingList,
+      CharList: this.state.CharList,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setThingList: this.setThingList,
+      setCharList: this.setCharList,
     }
     return (
-      <ThingListContext.Provider value={value}>
+      <CharListContext.Provider value={value}>
         {this.props.children}
-      </ThingListContext.Provider>
+      </CharListContext.Provider>
     )
   }
 }

@@ -1,27 +1,26 @@
 import React, { Component } from 'react'
 
-export const nullThing = {
+export const nullChar = {
   author: {},
   tags: [],
 }
 
-const ThingContext = React.createContext({
-  thing: nullThing,
-  reviews: [],
+const CharContext = React.createContext({
+  thing: nullChar,
+  chars: [],
   error: null,
   setError: () => { },
   clearError: () => { },
-  setThing: () => { },
-  clearThing: () => { },
-  setReviews: () => { },
-  addReview: () => { },
+  setChar: () => { },
+  clearChar: () => { },
+
 })
 
-export default ThingContext
+export default CharContext
 
-export class ThingProvider extends Component {
+export class CharProvider extends Component {
   state = {
-    thing: nullThing,
+    char: nullChar,
     error: null,
   };
 
@@ -34,42 +33,39 @@ export class ThingProvider extends Component {
     this.setState({ error: null })
   }
 
-  setThing = thing => {
-    this.setState({ thing })
+  setChar = char => {
+    this.setState({ char })
   }
 
-  setReviews = reviews => {
-    this.setState({ reviews })
+
+  clearChar = () => {
+    this.setChar(nullChar)
+    this.setChars([])
   }
 
-  clearThing = () => {
-    this.setThing(nullThing)
-    this.setReviews([])
-  }
-
-  addReview = review => {
-    this.setReviews([
-      ...this.state.reviews,
-      review
+  addChar = char => {
+    this.setChars([
+      ...this.state.chars,
+      char
     ])
   }
 
   render() {
     const value = {
-      thing: this.state.thing,
-      reviews: this.state.reviews,
+      char: this.state.char,
+      chars: this.state.chars,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setThing: this.setThing,
-      setReviews: this.setReviews,
-      clearThing: this.clearThing,
-      addReview: this.addReview,
+      setChar: this.setChar,
+      setChars: this.setChars,
+      clearChar: this.clearChar,
+      addChar: this.addChar,
     }
     return (
-      <ThingContext.Provider value={value}>
+      <CharContext.Provider value={value}>
         {this.props.children}
-      </ThingContext.Provider>
+      </CharContext.Provider>
     )
   }
 }

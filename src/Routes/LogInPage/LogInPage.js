@@ -1,5 +1,5 @@
 import React from 'react'
-import Section from '../../Utilities/Utilities'
+import { Section } from '../../Utilities/Utilities'
 import LoginForm from '../../Components/LogIn/LogIn'
 
 export default class LoginPage extends React.Component {
@@ -12,7 +12,8 @@ export default class LoginPage extends React.Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
+    const destination = (location.state || {}).from || '/User'
+
     history.push(destination)
   }
 
