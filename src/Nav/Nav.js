@@ -16,6 +16,7 @@ import NPC from '../Create/NPC/NPC'
 import Item from '../Create/Item/Item'
 import RegPage from '../Routes/RegPage/RegPage';
 import LoginPage from '../Routes/LogInPage/LogInPage';
+import CharPage from '../Routes/CharPage/CharPage';
 
 export default class Nav extends React.Component {
 
@@ -41,9 +42,8 @@ export default class Nav extends React.Component {
           <Route exact path="/Contact">
             <Contact />
           </Route>
-          <Route exact path="/User">
-            <UserHome />
-          </Route>
+          <Route exact path="/Users/:user_id" component={UserHome} />
+
           <Route exact path="/User/Create/Character">
             <Character />
           </Route>
@@ -58,7 +58,7 @@ export default class Nav extends React.Component {
           </Route>
           <Route exact path="/Register" component={RegPage} />
           <Route exact path="/login" component={LoginPage} />
-
+          <Route exact path="/User/Characters/:character_id" component={CharPage} />
           <Route path="/" component={LoginPage} />
 
         </Switch>

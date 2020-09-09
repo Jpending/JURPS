@@ -6,7 +6,7 @@ export const nullChar = {
 }
 
 const CharContext = React.createContext({
-  thing: nullChar,
+  char: nullChar,
   chars: [],
   error: null,
   setError: () => { },
@@ -36,7 +36,9 @@ export class CharProvider extends Component {
   setChar = char => {
     this.setState({ char })
   }
-
+  setChars = chars => {
+    this.setState({ chars })
+  }
 
   clearChar = () => {
     this.setChar(nullChar)

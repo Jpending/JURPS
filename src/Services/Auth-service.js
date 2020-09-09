@@ -2,7 +2,7 @@ import config from '../config'
 
 const AuthService = {
   postLogin(credentials) {
-    console.log(credentials)
+    //console.log(credentials)
     return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {
@@ -14,7 +14,9 @@ const AuthService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      ).catch(error => {
+        console.error({ error })
+      })
   },
   postRegister(newcredentials) {
     console.log(newcredentials)
@@ -29,7 +31,9 @@ const AuthService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      )
+      ).catch(error => {
+        console.error({ error })
+      })
   },
 }
 

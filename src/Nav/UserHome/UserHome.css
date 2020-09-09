@@ -38,13 +38,20 @@ ul {
 li {
   margin-bottom: 2%;
   flex: 1;
-  width: 40vw;
+  width: fit-content;
+}
+
+.ulcat {
+  flex: 1;
+  width: fit-content;
 }
 
 .characterdiv {
   text-align: left;
   border: 3px gray solid;
   margin-bottom: 1px;
+  display: flex;
+
 }
 
 .mystuffcont,
