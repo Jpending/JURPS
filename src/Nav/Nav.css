@@ -2,11 +2,16 @@
   display: flex;
   flex-flow: row wrap;
   text-align: center;
-  max-width: 96.2vw;
+  justify-content: space-evenly;
 }
 
 .nav-item {
+  color: cadetblue;
   flex: 1;
+}
+
+Link:visited {
+  color: cornflowerblue;
 }
 
 Nav {

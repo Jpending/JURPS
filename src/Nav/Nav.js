@@ -17,53 +17,44 @@ import Item from '../Create/Item/Item'
 import RegPage from '../Routes/RegPage/RegPage';
 import LoginPage from '../Routes/LogInPage/LogInPage';
 import CharPage from '../Routes/CharPage/CharPage';
+import NotFound from '../Routes/NotFound/NotFound';
+import FadeIn from '../Utilities/FadeIn';
+import { render } from '@testing-library/react';
 
 export default class Nav extends React.Component {
 
+
+  renderMainRoutes() {
+    return (
+      <Switch>
+        <Route path="/about" component={About} />
+        <Route path="/HowTo" component={HowToUse} />
+        <Route path="/Contact" component={Contact} />
+        <Route exact path="/Register" component={RegPage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/User/Characters" component={UserHome} />
+        <Route exact path="/User/Characters/:character_id" component={CharPage} />
+        <Route exact path="/User/Create/Character" component={Character} />
+        <Route exact path="/User/Create/NPC" component={NPC} />
+        <Route exact path="/User/Create/Item" component={Item} />
+        <Route exact path="/User/Create/BBEG" component={BBEG} />
+        <Route path="/" component={NotFound} />
+      </Switch>)
+  }
   render() {
 
 
     return (
-      <Router>
+      <FadeIn>
         <nav className="main-nav">
-          <div className="nav-item"><Link to="/">Home</Link></div>
-          <div className="nav-item"><Link to="/User">Create & View</Link></div>
+          <div className="nav-item"><Link to="/User">Home</Link></div>
+          <div className="nav-item"><Link to="/User/Characters">Create & View</Link></div>
           <div className="nav-item"><Link to="/About">About</Link></div>
-          <div className="nav-item"><Link to="/How-To-Use">How to Use</Link></div>
+          <div className="nav-item"><Link to="/HowTo">How to Use</Link></div>
           <div className="nav-item"><Link to="/Contact">Contact</Link></div>
         </nav>
-        <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/How-To-Use">
-            <HowToUse />
-          </Route>
-          <Route exact path="/Contact">
-            <Contact />
-          </Route>
-          <Route exact path="/Users/:user_id" component={UserHome} />
 
-          <Route exact path="/User/Create/Character">
-            <Character />
-          </Route>
-          <Route exact path="/User/Create/NPC">
-            <NPC />
-          </Route>
-          <Route exact path="/User/Create/Item">
-            <Item />
-          </Route>
-          <Route exact path="/User/Create/BBEG">
-            <BBEG />
-          </Route>
-          <Route exact path="/Register" component={RegPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/User/Characters/:character_id" component={CharPage} />
-          <Route path="/" component={LoginPage} />
-
-        </Switch>
-
-      </Router >
+      </FadeIn>
     )
   }
 }

@@ -1,0 +1,36 @@
+/* body,
+h1,
+h2,
+h3,
+h4 {
+
+  max-width: 96vw;
+  min-width: fit-content;
+}
+
+section,
+.Section,
+.Section--list,
+.userHomeMain {
+
+  max-width: max-content;
+  min-width: fit-content;
+}
+
+nav {
+  max-width: 96vw;
+  min-width: 96vw;
+}
+
+div {
+  max-width: max-content;
+  width: fit-content;
+}
+
+#root {
+  max-width: 96vw;
+}
+
+html {
+  max-width: 96vw;
+} */

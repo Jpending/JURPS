@@ -1,7 +1,8 @@
 import React from 'react'
-import CharContext from '../../Context/CharContext';
+import '../../Create/Character/Character.css'
 import { Input, Textarea } from '../../Utilities/Utilities';
 import characterService from '../../Services/Character-service'
+import UserContext from '../../Context/UserContext';
 
 
 
@@ -15,52 +16,59 @@ export default class CharPage extends React.Component {
   //   }).isRequired,
   // };
 
-  static contextType = CharContext;
+  static contextType = UserContext;
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      char: {}
+      char: {
+        id: 0,
+        name: '',
+        race: '',
+        cclass: '',
+        str: 0,
+        dex: 0,
+        int: 0,
+        health: 0,
+        hp: 0,
+        will: 0,
+        per: 0,
+        fp: 0,
+        abilities: '',
+        story: ''
+      }
     };
   }
 
-  // componentDidMount() {
-  //   const { charId } = this.props.match.params
-  //   fetch(config.API_ENDPOINT + `Characters/${charId}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'authorization': `Bearer ${config.API_KEY}`
-  //     }
-  //   })
-  //     .then(res => {
-  //       if (!res.ok) {
-  //         return res.json().then(error => Promise.reject(error))
-  //       }
-  //       return res.json()
-  //     })
-  //     .then(responseData => {
-  //       this.setState({
-  //         id: '',
-  //         name: responseData.name,
-  //         race: responseData.race,
-  //         cclass: responseData.class,
-  //         str: responseData.str,
-  //         dex: responseData.dex,
-  //         int: responseData.int,
-  //         health: responseData.health,
-  //         hp: responseData.hp,
-  //         will: responseData.will,
-  //         per: responseData.per,
-  //         fp: responseData.fp,
-  //         abilities: responseData.abilities,
-  //         story: responseData.story
-  //       })
-  //     })
-  //     .catch(error => {
-  //       console.error(error)
-  //       this.setState({ error })
-  //     })
-  // }
+  componentDidMount() {
+
+    const character_id = undefined ? this.props.match.params.character_id : this.props.char.cid
+    characterService.getCharacter(character_id)
+      .then(responseData => {
+        this.setState({
+          char: {
+            id: '',
+            name: responseData.name,
+            race: responseData.race,
+            cclass: responseData.class,
+            str: responseData.str,
+            dex: responseData.dex,
+            int: responseData.int,
+            health: responseData.health,
+            hp: responseData.hp,
+            will: responseData.will,
+            per: responseData.per,
+            fp: responseData.fp,
+            abilities: responseData.abilities,
+            story: responseData.story
+          }
+        })
+      })
+      .catch(error => {
+        console.error(error)
+        this.setState({ error })
+      })
+  }
 
 
   // handleChangeForm(ev) {
@@ -111,21 +119,19 @@ export default class CharPage extends React.Component {
     const charToUpdate = this.formatUpdateChar();
     console.log(char)
     await characterService.patchChar(charToUpdate, char.id)
-
-    handleExpand(ev);
-
-
+      .then(handleExpand)
   }
 
   render() {
+    console.log(this.props)
     const { error } = this.state
-    const { char, id } = this.props
+    const { char } = this.state
     return (
       <div>
         <h1>Editing {char.name}</h1>
         <div>
           {error && <h2>{error.message}</h2>}
-          <form key={id} onSubmit={(ev) => { this.handleSubmit(ev) }} >
+          <form key={char.id} onSubmit={(ev) => { this.handleSubmit(ev) }} >
             <div className="textattr">
               <label htmlFor="name">Name:</label><Input type="text" className="textinput" name="name" defaultValue={char.name} onChange={this.handleChangeName} />
               <label htmlFor="race">Race:</label><Input type="text" className="textinput" name="race" defaultValue={char.race} onChange={this.handleChangeRace} />

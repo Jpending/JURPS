@@ -3,13 +3,18 @@ import TokenService from '../../Services/Token-service'
 import AuthService from '../../Services/Auth-service'
 import { Button, Input } from '../../Utilities/Utilities'
 import { Link } from 'react-router-dom'
+import UserContext from '../../Context/UserContext'
 
 export default class LogIn extends React.Component {
+  state = {
+
+    error: null,
+  };
   static defaultProps = {
     onLoginSuccess: () => { }
   }
 
-  state = { error: null }
+  static contextType = UserContext;
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
@@ -26,14 +31,17 @@ export default class LogIn extends React.Component {
         TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess(res.payload.user_id)
       })
-      .catch(res => {
-        this.setState({ error: res.error })
-      })
+      .catch(//res => {
+        // this.setState({ error: error })
+        this.context.setError
+        //}
+      )
   }
 
   render() {
-    const { error } = this.state
+    const { error } = this.context
     return (
+
       <form
         className='LoginForm'
         onSubmit={this.handleSubmitJwtAuth}
@@ -67,6 +75,7 @@ export default class LogIn extends React.Component {
         </Button>
         <Link to="/Register"><Button type="submit">Create Account</Button></Link>
       </form>
+
     )
   }
 }

@@ -1,9 +1,23 @@
 import config from '../config'
 import TokenService from './Token-service'
 
+
 const CharacterService = {
+
   getAllCharacters() {
     return fetch(`${config.API_ENDPOINT}/Characters`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  getCharacter(id) {
+    return fetch(`${config.API_ENDPOINT}/Users/${id}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
@@ -36,13 +50,14 @@ const CharacterService = {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      body: newChar.json
+      body: JSON.stringify(newChar)
     })
       .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       ).catch(error => {
+
         console.error({ error })
       })
   },

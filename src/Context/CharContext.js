@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
 
-export const nullChar = {
-  author: {},
-  tags: [],
-}
 
 const CharContext = React.createContext({
-  char: nullChar,
   chars: [],
   error: null,
   setError: () => { },
   clearError: () => { },
-  setChar: () => { },
   clearChar: () => { },
-
+  setChars: () => { },
 })
 
 export default CharContext
 
 export class CharProvider extends Component {
   state = {
-    char: nullChar,
+    chars: [],
     error: null,
   };
 
@@ -41,7 +35,7 @@ export class CharProvider extends Component {
   }
 
   clearChar = () => {
-    this.setChar(nullChar)
+
     this.setChars([])
   }
 
@@ -54,7 +48,6 @@ export class CharProvider extends Component {
 
   render() {
     const value = {
-      char: this.state.char,
       chars: this.state.chars,
       error: this.state.error,
       setError: this.setError,
