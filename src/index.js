@@ -10,13 +10,9 @@ import { CharProvider } from './Context/CharContext';
 ReactDOM.render(
   <BrowserRouter>
     <UserContextProvider>
-
       <CharProvider>
-
         <App />
-
       </CharProvider>
-
     </UserContextProvider>
   </BrowserRouter>
   ,

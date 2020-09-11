@@ -1,6 +1,7 @@
 export default {
-  API_ENDPOINT: 'http://localhost:8000/api',
+  API_ENDPOINT: 'https://jurps-server.herokuapp.com/api',
 
-  TOKEN_KEY: 'balthazar-lord-of-the-undead',
+  TOKEN_KEY: 'YmFsdGhhemFyLWxvcmQtb2YtdGhlLXVuZGVhZA==',
 }
-//https://jurps-server.herokuapp.com/
+//https://jurps-server.herokuapp.com/api
+//http://localhost:8000/api

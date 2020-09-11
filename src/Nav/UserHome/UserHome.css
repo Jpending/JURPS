@@ -1,13 +1,14 @@
 .userHomeMain {
   display: grid;
-  height: 90%;
-  width: fit-content;
+  height: 100vh;
+  width: 50vw;
   grid-template: auto 100vh auto / auto 100vw auto;
 }
 
 .makestuffnav {
-  background: lightgray;
-  grid-column: 1/1;
+  border: 5px solid lightgray;
+  background-color: lightgray;
+  grid-column: 1/2;
   height: 100vh;
   width: fit-content;
   justify-content: space-evenly;
@@ -15,14 +16,14 @@
 
 .makebuttons {
   border-radius: 10%;
-  border: .1rem solid lightgray;
+  border: none;
+  box-shadow: 0 2px 2px ghostwhite;
   font-weight: bold;
-  font-size: .8em;
+  font-size: .6em;
   color: rgb(17, 11, 11);
-  margin: 1rem;
-  justify-items: stretch;
-  height: max-content;
-  width: fit-content;
+  margin: .1rem;
+  height: 2vh;
+  width: 2vw;
 }
 
 ul {
@@ -31,14 +32,8 @@ ul {
   flex-flow: column;
   text-align: justify;
   width: fit-content;
-  margin-bottom: 2vh;
+  margin-bottom: 1vh;
 }
-
-/*
-h3 {
-  width: 100%;
-  margin: 10vw;
-} */
 
 li {
   margin-bottom: 2%;
@@ -46,44 +41,37 @@ li {
   width: fit-content;
 }
 
-/* .ulcat {
-  flex: 1;
-  width: fit-content;
-} */
-
-/* .characterdiv {
-  text-align: left;
-  border: 3px gray solid;
-  margin-bottom: 1px;
+.mychars {
+  position: fixed;
+  margin-left: 0;
+  grid-row: 3/2;
+  grid-column: 2/3;
   display: flex;
-
-} */
-
-
-.mylist {
-  margin: auto;
-  grid-row: auto;
-  display: grid;
-  grid-auto-columns: minmax(auto);
-  grid-auto-rows: minmax(auto);
-  grid-gap: auto;
+  flex-flow: column wrap;
+  align-items: stretch;
+  max-height: 150vh;
+  max-width: fit-content;
 }
 
-/* .mystuffspan,
-.makestuffspan {
-  margin-top: 10%;
-  font-size: 2rem;
-} */
+h3 {
+  position: sticky;
+  align-self: center;
+  margin: 1%;
+  width: 20vw;
+  text-align: justify;
+}
 
-
-.Cards {
-  max-width: max-content;
-  /* border: 2px solid #e7e7e7; */
+.characterdiv {
+  font-size: 1rem;
+  min-width: 2vw;
+  min-height: 2vh;
+  border: 3px solid lightgray;
   border-radius: 4px;
-  padding: .5vw;
-  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15); */
+  margin: .4vw;
+  padding: .1vw;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
   display: flex;
-  flex-direction: column;
-
+  flex-direction: column wrap;
+  flex: 1;
   color: #5d5e5e;
 }

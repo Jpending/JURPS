@@ -8,6 +8,8 @@ const CharContext = React.createContext({
   clearError: () => { },
   clearChar: () => { },
   setChars: () => { },
+  findAndDeleteChar: () => { },
+
 })
 
 export default CharContext
@@ -18,6 +20,9 @@ export class CharProvider extends Component {
     error: null,
   };
 
+  findAndDeleteChar = id => {
+    this.setState({ chars: this.state.chars.filter((char) => char.id !== id) })
+  }
   setError = error => {
     console.error(error)
     this.setState({ error })
@@ -35,7 +40,6 @@ export class CharProvider extends Component {
   }
 
   clearChar = () => {
-
     this.setChars([])
   }
 
@@ -56,6 +60,7 @@ export class CharProvider extends Component {
       setChars: this.setChars,
       clearChar: this.clearChar,
       addChar: this.addChar,
+      findAndDeleteChar: this.findAndDeleteChar,
     }
     return (
       <CharContext.Provider value={value}>

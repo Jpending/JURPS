@@ -7,7 +7,6 @@ import UserContext from '../../Context/UserContext'
 
 export default class LogIn extends React.Component {
   state = {
-
     error: null,
   };
   static defaultProps = {
@@ -16,11 +15,11 @@ export default class LogIn extends React.Component {
 
   static contextType = UserContext;
 
+
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
     this.setState({ error: null })
     const { user_name, password } = ev.target
-
     AuthService.postLogin({
       user_name: user_name.value,
       password: password.value,
@@ -31,10 +30,8 @@ export default class LogIn extends React.Component {
         TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess(res.payload.user_id)
       })
-      .catch(//res => {
-        // this.setState({ error: error })
+      .catch(
         this.context.setError
-        //}
       )
   }
 
@@ -47,7 +44,7 @@ export default class LogIn extends React.Component {
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
-          {error && <p className='red'>{error.message}</p>}
+          {error && <p className='red'>{error.message.message}</p>}
         </div>
         <div className='user_name'>
           <label htmlFor='LoginForm__user_name'>

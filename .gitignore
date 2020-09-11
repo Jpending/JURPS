@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+('balthazar-lord-of-the-undead')
 
 # testing
 /coverage

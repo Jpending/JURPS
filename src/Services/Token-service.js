@@ -1,4 +1,8 @@
+/* eslint-disable no-unused-vars */
 import config from '../config'
+import jwtDecode from 'jwt-decode'
+let _timeoutId
+const _TEN_SECONDS_IN_MS = 10000
 const TokenService = {
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token)
@@ -20,7 +24,28 @@ const TokenService = {
   },
   getUserID() {
     return window.localStorage.getItem("user_id")
-  }
+  },
+  storeCharID(charid) {
+    window.localStorage.setItem("charid", charid)
+  },
+  getCharID() {
+    return window.localStorage.getItem("charid")
+  },
+  clearCharID() {
+    window.localStorage.removeItem("charid")
+  },
+  _getMsUntilExpiry(payload) {
+
+    return (payload.exp * 1000) - Date.now()
+  },
+  queueCallbackBeforeExpiry(callback) {
+    const msUntilExpiry = TokenService._getMsUntilExpiry(
+      TokenService.readJwtToken()
+    ), _timeoutId = setTimeout(callback, msUntilExpiry - _TEN_SECONDS_IN_MS)
+  },
+  clearCallbackBeforeExpiry() {
+    clearTimeout(_timeoutId)
+  },
 }
 
 export default TokenService

@@ -13,7 +13,6 @@ export default class RegPage extends React.Component {
   handleRegistrationSuccess = () => {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/login'
-    console.log(history)
     history.push(destination)
   }
 

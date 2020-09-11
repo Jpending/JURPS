@@ -3,14 +3,14 @@ import './Contact.css'
 export default function Contact() {
 
   return (
-    <div>
-      <h1>Contact</h1>
-      <form>
+    <div className="main-body">
+      <h1 className="heading">Contact</h1>
+      {/* <form className="main-body">
         <input type='email' placeholder="youremail@example.com" />
         <textarea placeholder="type your message here" />
         <button type="submit" >Send</button>
-      </form>
-      <a href="jpending@gmail.com">send me an email.</a>
+      </form> */}
+      <a className="contactlinks" href="mailto:jpending@gmail.com">Click to send an email.</a>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import '../../Create/Character/Character.css'
 import { Input, Textarea } from '../../Utilities/Utilities';
 import characterService from '../../Services/Character-service'
 import UserContext from '../../Context/UserContext';
+import ErrorBoundary from '../../Components/ErrorBoundary/ErrorBound';
 
 
 
@@ -70,26 +71,6 @@ export default class CharPage extends React.Component {
       })
   }
 
-
-  // handleChangeForm(ev) {
-  //   const { name, race, cclass, str, dex, int, health, hp, will, per, fp, abilities, story } = ev.target
-  //   this.setState({
-  //     name: name.value,
-  //     race: race.value,
-  //     cclass: cclass.value,
-  //     str: str.value,
-  //     dex: dex.value,
-  //     int: int.value,
-  //     health: health.value,
-  //     hp: hp.value,
-  //     will: will.value,
-  //     per: per.value,
-  //     fp: fp.value,
-  //     abilities: abilities.value,
-  //     story: story.value
-  //   })
-  // }
-
   handleChangeName = e => { this.setState({ char: { name: e.target.value } }) }
   handleChangeRace = e => { this.setState({ char: { race: e.target.value } }) }
   handleChangeClass = e => { this.setState({ char: { cclass: e.target.value } }) }
@@ -115,7 +96,6 @@ export default class CharPage extends React.Component {
 
   async handleSubmit(ev) {
     const { handleExpand, char } = this.props
-
     const charToUpdate = this.formatUpdateChar();
     console.log(char)
     await characterService.patchChar(charToUpdate, char.id)
@@ -131,34 +111,36 @@ export default class CharPage extends React.Component {
         <h1>Editing {char.name}</h1>
         <div>
           {error && <h2>{error.message}</h2>}
-          <form key={char.id} onSubmit={(ev) => { this.handleSubmit(ev) }} >
-            <div className="textattr">
-              <label htmlFor="name">Name:</label><Input type="text" className="textinput" name="name" defaultValue={char.name} onChange={this.handleChangeName} />
-              <label htmlFor="race">Race:</label><Input type="text" className="textinput" name="race" defaultValue={char.race} onChange={this.handleChangeRace} />
-              <label htmlFor="cclass">Class:</label><Input type="text" className="textinput" name="cclass" defaultValue={char.class} onChange={this.handleChangeClass} />
-            </div>
-            <div className="numattrcont" >
-              <div className="numattr" >
-                <label htmlFor="strength">Strength:</label><Input type="number" name="strength" defaultValue={char.str} onChange={this.handleChangeStr} />
-                <label htmlFor="dexterity">Dexterity:</label><Input type="number" name="dexterity" defaultValue={char.dex} onChange={this.handleChangeDex} />
-                <label htmlFor="intelligence">Intelligence:</label><Input type="number" name="intelligence" defaultValue={char.int} onChange={this.handleChangeInt} />
-                <label htmlFor="health">Health:</label><Input type="number" name="health" defaultValue={char.health} onChange={this.handleChangeHealth} />
+          <ErrorBoundary>
+            <form key={char.id} onSubmit={(ev) => { this.handleSubmit(ev) }} >
+              <div className="textattr">
+                <label htmlFor="name">Name:</label><Input type="text" className="textinput" name="name" defaultValue={char.name} onChange={this.handleChangeName} />
+                <label htmlFor="race">Race:</label><Input type="text" className="textinput" name="race" defaultValue={char.race} onChange={this.handleChangeRace} />
+                <label htmlFor="cclass">Class:</label><Input type="text" className="textinput" name="cclass" defaultValue={char.class} onChange={this.handleChangeClass} />
               </div>
-              <div className="numattr">
-                <label htmlFor="hit_points">Hit Points: </label> <Input type="number" name="hit_points" defaultValue={char.hp} onChange={this.handleChangeHP} />
-                <label htmlFor="will">Will:</label><Input type="number" name="will" defaultValue={char.will} onChange={this.handleChangeWill} />
-                <label htmlFor="perception">Perception:</label><Input type="number" name="perception" defaultValue={char.per} onChange={this.handleChangePer} />
-                <label htmlFor="fatigue_points">Fatigue Points:</label><Input type="number" name="fatigue_points" defaultValue={char.fp} onChange={this.handleChangeFP} />
+              <div className="numattrcont" >
+                <div className="numattr" >
+                  <label htmlFor="strength">Strength:</label><Input type="number" name="strength" defaultValue={char.str} onChange={this.handleChangeStr} />
+                  <label htmlFor="dexterity">Dexterity:</label><Input type="number" name="dexterity" defaultValue={char.dex} onChange={this.handleChangeDex} />
+                  <label htmlFor="intelligence">Intelligence:</label><Input type="number" name="intelligence" defaultValue={char.int} onChange={this.handleChangeInt} />
+                  <label htmlFor="health">Health:</label><Input type="number" name="health" defaultValue={char.health} onChange={this.handleChangeHealth} />
+                </div>
+                <div className="numattr">
+                  <label htmlFor="hit_points">Hit Points: </label> <Input type="number" name="hit_points" defaultValue={char.hp} onChange={this.handleChangeHP} />
+                  <label htmlFor="will">Will:</label><Input type="number" name="will" defaultValue={char.will} onChange={this.handleChangeWill} />
+                  <label htmlFor="perception">Perception:</label><Input type="number" name="perception" defaultValue={char.per} onChange={this.handleChangePer} />
+                  <label htmlFor="fatigue_points">Fatigue Points:</label><Input type="number" name="fatigue_points" defaultValue={char.fp} onChange={this.handleChangeFP} />
+                </div>
               </div>
-            </div>
-            <div className="textareacont">
-              <label htmlFor="abilities">Abilities:</label>
-              <Textarea className="abilities" name="abilities" defaultValue={char.abilities} onChange={this.handleChangeAbilities} />
-              <label htmlFor="backstory">Backstory:</label>
-              <Textarea className="backstory" name="backstory" defaultValue={char.story} onChange={this.handleChangeStory} />
-            </div>
-            <button>Submit</button>
-          </form >
+              <div className="textareacont">
+                <label htmlFor="abilities">Abilities:</label>
+                <Textarea className="abilities" name="abilities" defaultValue={char.abilities} onChange={this.handleChangeAbilities} />
+                <label htmlFor="backstory">Backstory:</label>
+                <Textarea className="backstory" name="backstory" defaultValue={char.story} onChange={this.handleChangeStory} />
+              </div>
+              <button>Submit</button>
+            </form >
+          </ErrorBoundary>
         </div>
       </div>)
   }

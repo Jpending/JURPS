@@ -39,9 +39,7 @@ const CharacterService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      ).catch(error => {
-        console.error({ error })
-      })
+      )
   },
   postChar(newChar, userid) {
     return fetch(`${config.API_ENDPOINT}/Users/${userid}/Characters`, {
@@ -56,13 +54,9 @@ const CharacterService = {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      ).catch(error => {
-
-        console.error({ error })
-      })
+      )
   },
   patchChar(editedChar, charId) {
-    console.log(JSON.stringify(editedChar))
     return fetch(`${config.API_ENDPOINT}/Characters/${charId}`, {
       method: 'PATCH',
       headers: {
@@ -75,10 +69,22 @@ const CharacterService = {
         (!res.ok)
           ? res.json()
             .then(e => Promise.reject(e)) : res.json())
-      .catch(error => {
-        console.error({ error })
-      })
-  }
+  },
+  deleteCharacter(char_id) {
+    return fetch(`${config.API_ENDPOINT}/Characters/${char_id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+
+  },
 }
 
 export default CharacterService

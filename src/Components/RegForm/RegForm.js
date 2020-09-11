@@ -13,7 +13,6 @@ export default class RegistrationForm extends React.Component {
   handleSubmit = ev => {
     ev.preventDefault()
     const { email, display_name, user_name, password } = ev.target
-    console.log('registration form submitted')
     AuthService.postRegister({
       user_name: user_name.value,
       password: password.value,
@@ -30,7 +29,7 @@ export default class RegistrationForm extends React.Component {
       .catch(res => {
         this.setState({ error: res.error })
       })
-    console.log({ email, display_name, user_name, password })
+
   }
 
   render() {

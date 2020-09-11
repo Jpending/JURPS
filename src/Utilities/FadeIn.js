@@ -43,6 +43,7 @@ export default class FadeIn extends Component {
             <ChildTag
               className={this.props.childClassName}
               style={{
+                'maxWidth': `100%`,
                 transition: `opacity ${transitionDuration}ms, transform ${transitionDuration}ms`,
                 transform: `translateY(${this.state.maxIsVisible > i ? 0 : 20}px)`,
                 opacity: this.state.maxIsVisible > i ? 1 : 0

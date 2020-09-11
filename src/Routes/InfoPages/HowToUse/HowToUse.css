@@ -1,0 +1,32 @@
+.main-body {
+  width: 60vw;
+  padding: 5%;
+  align-self: start;
+  font-family: system-ui;
+  flex-flow: column wrap;
+  text-align: justify;
+}
+
+.linksdiv {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: column wrap;
+}
+
+.heading {
+  color: cadetblue;
+  flex: 1;
+  width: fit-content;
+  margin: 1%
+}
+
+.links {
+  text-decoration: none;
+  color: cadetblue;
+  flex: 1;
+  width: fit-content;
+  margin: 1%
+}
