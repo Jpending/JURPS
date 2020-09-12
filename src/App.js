@@ -42,6 +42,7 @@ class App extends React.Component {
           <PrivateRoute exact path="/User/Create/NPC" component={NPC} />
           <PrivateRoute exact path="/User/Create/Item" component={Item} />
           <PrivateRoute exact path="/User/Create/BBEG" component={BBEG} />
+          <Route exact path="/" component={LoginPage} />
           <Route path="/" component={NotFound} />
         </Switch>
       </>

@@ -44,7 +44,7 @@ export default class LogIn extends React.Component {
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
-          {error && <p className='red'>{error.message.message}</p>}
+          {error && <p className='red'>{error.message}</p>}
         </div>
         <div className='user_name'>
           <label htmlFor='LoginForm__user_name'>

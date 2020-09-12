@@ -17,7 +17,7 @@ export default class LoginPage extends React.Component {
 
   handleLoginSuccess = (user_id) => {
     const { location, history } = this.props
-    const destination = (location.state || {}).from || `/Users/${user_id}`
+    const destination = (location.state || {}).from || `/User/Characters`
     TokenService.storeUserID(user_id)
     history.push(destination)
   }
